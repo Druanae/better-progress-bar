@@ -1,6 +1,7 @@
 # better music bar
 A script I wrote that will take the currently playing song and recolour it to display the percentage completed in Lemonbar.  
-Outputs the song title - artist name if tagged correctly, otherwise outputs the file name. To change this edit the string in the `songstr` variable on line 5.  
+Outputs the song title - artist name if tagged correctly, otherwise outputs the file name.  
+To change this edit the string in the `songstr` variable on line 5.  
 Example: ![1](/screenshot/example.png)
 
 Only dependency is mpc and subsequently MPD.  
