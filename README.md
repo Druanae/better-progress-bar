@@ -1,5 +1,6 @@
 # Better Music Progress
 A script I wrote that will take the currently playing song and recolour it to display the percentage of the song completed in Lemonbar.  
+Resets the colour to Lemonbar's foreground colour.  
 Outputs "song title - artist name" if tagged correctly, otherwise outputs file name.  
 To change this edit the string in the `songstr` variable on line 5. See `man mpc` for more formatting options.  
 Example: ![1](/screenshot/example.png)
