@@ -1,5 +1,7 @@
 #!/bin/bash
 music_percent() {
+    completed="#dc1566"
+
     songstr=$(mpc current -f '[%title% - %artist%|%file%] ')
 
     percentage=$(mpc | grep -o "(.*%)")
@@ -9,7 +11,7 @@ music_percent() {
 
     underline=$(($((percentage * length)) / 100))
 
-    outstr="%{F#dc1566}"
+    outstr="%{F$completed}"
     for (( i=0; i<${#songstr}; i++ )); do
         if [[ "$i" == "$underline" ]]; then
             outstr="${outstr}%{F-}${songstr:$i:1}"
