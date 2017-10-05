@@ -15,5 +15,4 @@ To change the paused colour change the value of `$paus_col`.
 Must be a valid colour in lemonbar.
 
 ## Todo
-- [ ] Remove whitespace from the calculation.
 - [ ] Set the hyphen as a delimeter to always equal 50% completed.
