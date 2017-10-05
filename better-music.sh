@@ -1,9 +1,12 @@
 #!/bin/bash
 music_percent() {
-    completed="#dc1566" # stores the colour of the % complete text
+    comp_col="#dc1566" # stores the colour of the % complete text
+    paus_col="#d7d787"
 
     # current song in format "title - artist" if tagged, if not use filename
     songstr=$(mpc current -f '[%title% - %artist%|%file%] ')
+    # get song status
+    songsta=$(mpc status | awk -F "[][]" 'NR==2{print $2}')
 
     # get the % of the song completed
     percentage=$(mpc | grep -o "(.*%)")
@@ -15,8 +18,15 @@ music_percent() {
     # convert songstr's length to correspond with percentage values
     underline=$(($((percentage * length)) / 100))
 
-    # set output string colour
-    outstr="%{F$completed}"
+
+    # set output string colour, use yellow if paused and red if playing
+    if [[ "$songsta" == "paused" ]]; then
+        outstr="%{F$paus_col}"
+    else
+        outstr="%{F$comp_col}"
+    fi
+
+    # Format output string
     for (( i=0; i<${#songstr}; i++ )); do
         if [[ "$i" == "$underline" ]]; then
             # reset output colour then output current character
