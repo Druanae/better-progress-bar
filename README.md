@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/master
 # Better Music Progress
 A script that takes the currently playing song and recolours it to display the percentage of the song completed in Lemonbar.  
 Resets the colour to Lemonbar's foreground colour.  
@@ -18,6 +21,7 @@ Must be a valid colour in lemonbar.
 
 ## Todo
 - [ ] Set the hyphen as a delimeter to always equal 50% completed.
+<<<<<<< HEAD
 =======
 # better music bar
 <<<<<<< HEAD
@@ -102,3 +106,5 @@ To change the progress completed colour change the value of `$comp_col`.
 To change the paused colour change the value of `$paus_col`.   
 Must be a valid colour in lemonbar.
 >>>>>>> fec5d5d... renamed from better-music-bar to better-progress-bar
+=======
+>>>>>>> refs/remotes/origin/master
