@@ -1,6 +1,6 @@
 # better music bar
 A script I wrote that will take the currently playing song and recolour it to display the percentage completed in Lemonbar.
-![Example](screenshots/example.png)
+![1](/screenshots/example.png)
 
 Only dependency is mpc and subsequently MPD.
 To use it simply call it in your lemonbar script, for example:
