@@ -1,10 +1,12 @@
 # better music bar
 A script I wrote that will take the currently playing song and recolour it to display the percentage completed in Lemonbar.  
+Outputs the song title - artist name if tagged correctly, otherwise outputs the file name. To change this edit the string in the `songstr` variable on line 5.  
 Example: ![1](/screenshot/example.png)
 
-Only dependency is mpc and subsequently MPD.
+Only dependency is mpc and subsequently MPD.  
 To use it simply call it in your lemonbar script, for example:
 ```bash
 echo "%{c}$(better-music.sh)" | lemonbar -p -B "#000" -F "#fff"
 ```
-To change the colour it sets for the percentage completed change the value of `$completed="#dc1566"` to whatever you like. Must be a valid colour that lemonbar will accept.
+To change the colour it sets for the percentage completed change the value of `$completed="#dc1566"` to whatever you like.  
+Must be a valid colour that lemonbar will accept.
