@@ -60,11 +60,15 @@ Outputs the song title - artist name if tagged correctly, otherwise outputs the 
 =======
 Outputs the song title - artist name if tagged correctly, otherwise outputs the file name.  
 <<<<<<< HEAD
+<<<<<<< HEAD
 To change this edit the string in the `songstr` variable on line 5.  
 >>>>>>> af47566... README.md: did some formatting.
 =======
 To change this edit the string in the `songstr` variable on line 5. See `man mpc` for more formatting options. 
 >>>>>>> 01165e6... README.md: did some formatting.
+=======
+To change this edit the string in the `songstr` variable on line 5. See `man mpc` for more formatting options.  
+>>>>>>> 2f739d4... README.md: Added newline before example.png
 Example: ![1](/screenshot/example.png)
 >>>>>>> 0450e6f... Updated README.md
 
