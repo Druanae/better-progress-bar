@@ -19,23 +19,24 @@ music_percent() {
     underline=$(($((percentage * length)) / 100))
 
 
-    # set output string colour, use yellow if paused and red if playing
     if [[ "$songsta" == "paused" ]]; then
-        outstr="%{F$paus_col}"
+        # if paused, change entire string paus_col
+        outstr="%{F$paus_col}$songstr"
     else
+        # else colour progress % comp_col
         outstr="%{F$comp_col}"
+        # Format output string
+        for (( i=0; i<${#songstr}; i++ )); do
+            if [[ "$i" == "$underline" ]]; then
+                # reset output colour then output current character
+                outstr="${outstr}%{F-}${songstr:$i:1}"
+            else
+                # output current character
+                outstr="${outstr}${songstr:$i:1}"
+            fi
+        done
     fi
 
-    # Format output string
-    for (( i=0; i<${#songstr}; i++ )); do
-        if [[ "$i" == "$underline" ]]; then
-            # reset output colour then output current character
-            outstr="${outstr}%{F-}${songstr:$i:1}"
-        else
-            # output current character
-            outstr="${outstr}${songstr:$i:1}"
-        fi
-    done
 
     echo "$outstr%{F-}"
 }
