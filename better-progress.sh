@@ -1,43 +1,48 @@
 #!/bin/bash
+
 music_percent() {
-    comp_col="#dc1566" # stores the colour of the % complete text
-    paus_col="#d7d787"
 
-    # current song in format "title - artist" if tagged, if not use filename
-    songstr=$(mpc current -f '[%title% - %artist%|%file%] ')
-    # get song status
-    songsta=$(mpc status | awk -F "[][]" 'NR==2{print $2}')
+    completion_color="#dc1566"
+    paused_color="#d7d787"
 
-    # get the % of the song completed
+    delimiter=" - "
+
+    song_string=$(mpc current -f "[%title%$delimiter%artist%|%file%] ")
+    song_status=$(mpc status | awk -F "[][]" 'NR==2{print $2}')
+
     percentage=$(mpc | grep -o "(.*%)")
     percentage=${percentage:1:-2}
 
-    # get the number of characters in the song name
-    length=$(echo $songstr | wc -m)
+    total_length=${#song_string}
+    n_colored=$(( $(($percentage * $total_length)) / 100 ))
 
-    # convert songstr's length to correspond with percentage values
-    underline=$(($((percentage * length)) / 100))
+    output=""
 
+    if [[ "$song_status" == "paused" ]]
+    then
 
-    if [[ "$songsta" == "paused" ]]; then
-        # if paused, change entire string paus_col
-        outstr="%{F$paus_col}$songstr"
+        output="%{F$paused_color}$song_string%{F-}"
+
     else
-        # else colour progress % comp_col
-        outstr="%{F$comp_col}"
-        # Format output string
-        for (( i=0; i<${#songstr}; i++ )); do
-            if [[ "$i" == "$underline" ]]; then
-                # reset output colour then output current character
-                outstr="${outstr}%{F-}${songstr:$i:1}"
-            else
-                # output current character
-                outstr="${outstr}${songstr:$i:1}"
+
+        output="%{F$completion_color}"
+
+        for (( index=0; index<$total_length; index++ ))
+        do
+
+            if [[ "$index" == "$n_colored" ]]
+            then
+                output="${output}%{F-}"
             fi
+
+            output="${output}${song_string:$index:1}"
+
         done
+
     fi
 
+    echo "$output%{F-}"
 
-    echo "$outstr%{F-}"
 }
+
 music_percent
