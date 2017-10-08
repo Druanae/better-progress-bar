@@ -21,7 +21,7 @@ music_percent() {
     if [[ "$song_status" == "paused" ]]
     then
 
-        output="%{F$paused_color}$song_string%{F-}"
+        output="%{F$paused_color}$song_string"
 
     else
 
