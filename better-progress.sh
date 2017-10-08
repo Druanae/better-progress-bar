@@ -41,7 +41,7 @@ music_percent() {
 
     fi
 
-    echo $output
+    echo "$output%{F-}"
 
 }
 
