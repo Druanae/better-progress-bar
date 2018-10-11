@@ -10,8 +10,8 @@ To use it simply call it in your lemonbar script, for example:
 ```bash
 echo "%{c}$(better-music.sh)" | lemonbar -p -B "#000" -F "#fff"
 ```
-To change the progress completed colour change the value of `$comp_col`.   
-To change the paused colour change the value of `$paus_col`.   
+To change the progress completed colour change the value of `$completion_color`.   
+To change the paused colour change the value of `$paused_color`.   
 Must be a valid colour in lemonbar.
 
 ## Todo
